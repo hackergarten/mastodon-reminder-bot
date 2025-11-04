@@ -33,7 +33,7 @@ def send_reminder(date, venue, location, link):
     mastodon.toot(
         "📢 Reminder: Next #Hackergarten is in one week! 📢\n"
         f"Join us on the {formatted_date} at 18:00 at {venue} in {location}.\n\n"
-        f"More info: {link}"
+        f"More info: {link}\n\n"
         f"{tagged_location}"
     )
 
