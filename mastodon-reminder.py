@@ -13,15 +13,27 @@ mastodon = Mastodon(
     client_secret=os.getenv("MASTODON_CLIENT_SECRET"),
     access_token=os.getenv("MASTODON_ACCESS_TOKEN"),
 )
+def add_location_hashtags(location):
+    if "Dortmund" in location:
+        return "#Dortmund"
+    if "Stuttgart" in location:
+        return "#Stuttgart"
+    if "Basel" in location:
+        return "#Basel"
+    if "Lucerne" in location:
+        return "#Lucerne"
+    if "Zurich" in location or "Zürich" in location:
+        return "#Zurich"
+    return ""
 
-
-def send_reminder(date, location, link):
+def send_reminder(date, venue, location, link):
+    formatted_date = date.strftime("%d.%m.%y")
     mastodon.toot(
-        "📢 Reminder: Next Hackergarten is in one week! 📢\n"
-        f"Join us on the {date} at 18:00 at the {location}.\n\n"
+        "📢 Reminder: Next #Hackergarten is in one week! 📢\n"
+        f"Join us on the {formatted_date} at 18:00 at the {venue} in {location}.\n\n"
         f"More info: {link}"
+        f"{add_location_hashtags(location)}"
     )
-
 
 with open("./events.json") as json_file:
     data = json.load(json_file)
