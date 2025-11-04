@@ -45,7 +45,7 @@ with open("./events.json") as json_file:
 
         # Check if event is one week away
         if (event_date - today).days == 7:
-            send_reminder(event["date"], event["venue"], event["location"], event["links"][0]["url"])
+            send_reminder(event["date"], event["venue"], event["address"], event["links"][0]["url"])
 
         # If events are in the past break for loop
         if event_date < today:

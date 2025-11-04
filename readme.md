@@ -1,5 +1,10 @@
 # Mastodon
 ## Setup
+### Development
+
+* checkout
+* do `pip  install -r requirements.txt` to install dependencies
+
 ### Mastodon-App-Setup
 Setup the App in Mastodon as follows:
 * Create a Mastodon Account (if you don’t have one)
