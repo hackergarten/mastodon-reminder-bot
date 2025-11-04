@@ -27,7 +27,7 @@ def add_location_hashtags(location):
     return ""
 
 def send_reminder(date, venue, location, link):
-    d = datetime.strptime(date, "%Y-%m-%d")  # Adjust format if needed
+    d = datetime.datetime.strptime(date, "%Y-%m-%d")  # Adjust format if needed
     formatted_date = d.strftime("%d.%m.%y")
     mastodon.toot(
         "📢 Reminder: Next #Hackergarten is in one week! 📢\n"
