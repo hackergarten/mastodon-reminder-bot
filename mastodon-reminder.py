@@ -29,11 +29,12 @@ def add_location_hashtags(location):
 def send_reminder(date, venue, location, link):
     d = datetime.datetime.strptime(date, "%Y-%m-%d")  # Adjust format if needed
     formatted_date = d.strftime("%d.%m.%y")
+    tagged_location = add_location_hashtags(location)
     mastodon.toot(
         "📢 Reminder: Next #Hackergarten is in one week! 📢\n"
-        f"Join us on the {formatted_date} at 18:00 at the {venue} in {location}.\n\n"
+        f"Join us on the {formatted_date} at 18:00 at {venue} in {location}.\n\n"
         f"More info: {link}"
-        f"{add_location_hashtags(location)}"
+        f"{tagged_location}"
     )
 
 with open("./events.json") as json_file:
