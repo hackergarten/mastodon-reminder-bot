@@ -35,6 +35,7 @@ def send_reminder(date, venue, location, link):
         f"Join us on the {formatted_date} at 18:00 at {venue} in {location}.\n\n"
         f"More info: {link}\n\n"
         f"{tagged_location}"
+        f"#OpenSource #Community #Contribution #DevCommunity #FreeSoftware"
     )
 
 with open("./events.json") as json_file:
